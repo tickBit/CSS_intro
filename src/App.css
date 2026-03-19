@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.ball-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ball-position {
+  position:relative;
+  top: 200px;
+}
+
+
