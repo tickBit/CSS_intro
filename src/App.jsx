@@ -3,10 +3,13 @@ import './App.css';
 import Ball from './components/Ball';
 
 function App() {
-  const letters = ["H", "E", "L", "L", "O"];
+
+  const initialLetters = ["H", "E", "L", "L", "O"];
   const initialColors = ["linear-gradient(to right, red , yellow)", "linear-gradient(to right, yellow , green)", "linear-gradient(to right, pink , yellow)", "linear-gradient(to right, blue , yellow)", "linear-gradient(to right, orange , yellow)"]
+
   const [balls, setBalls] = useState([]);
   const [colors, setColors] = useState(initialColors);
+  const [letters, setLetters] = useState(initialLetters);
 
   useEffect(() => {
     // Initialize balls only once
@@ -17,27 +20,13 @@ function App() {
       setBalls(initialBalls);
     }
 
-    // Setting up the color cycling interval
-    const interval = setInterval(() => {
-      setColors(prevColors => {
-        return prevColors.map((color, index) => {
-          // Change to the next color in the array cyclically
-          const nextColorIndex = (initialColors.indexOf(color) + 1) % initialColors.length;
-          return initialColors[nextColorIndex];
-        });
-      });
-    }, 500); // Change colors every second
 
-    return () => {
-      clearInterval(interval); // Cleanup interval on unmount
-    };
-
-  }, [balls.length, colors, initialColors, letters]);
+  }, []);
 
   useEffect(() => {
-    // Update balls whenever colors change
+    // Update balls whenever letters change
     const updatedBalls = letters.map((letter, index) => (
-      <Ball key={index} color={colors[index]} letter={letter} />
+      <Ball key={index} color={initialColors[index]} letter={letter} />
     ));
     setBalls(updatedBalls);
   }, [colors, letters]); // Re-run whenever colors or letters change
