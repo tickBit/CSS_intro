@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 .ball-container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
+.number {
+  position: absolute;
+  display: inline-flex;
+  margin-top: -420px;
+  align-items: center;
+}
+
 .ball-position {
   position:relative;
-  top: 200px;
+  margin-top: 50px;
 }
 
 

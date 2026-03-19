@@ -7,6 +7,7 @@ const Ball = (props) => {
             <div className="h-128 animate-bounce">
                 <div className="w-16 h-16 rounded-full animate-spin" style={{color: "whitesmoke", backgroundImage: props.color}}>{props.letter}</div>
             </div>
+            <div className="number text-4xl">{props.letter}</div>
         </div>
         
     )
